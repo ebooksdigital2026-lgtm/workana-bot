@@ -1,0 +1,28 @@
+name: Workana Bot
+on:
+  schedule:
+    - cron: '0 * * * *'  # every hour
+  workflow_dispatch:     # manual trigger for testing
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run scraper
+        run: python scrape_and_send.py
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          WORKANA_CATEGORY: ${{ secrets.WORKANA_CATEGORY }}
+          WORKANA_PUBLICATION: ${{ secrets.WORKANA_PUBLICATION }}
+          WORKANA_MAX_PAGES: ${{ secrets.WORKANA_MAX_PAGES }}
+          WORKANA_MAX_RESULTS: ${{ secrets.WORKANA_MAX_RESULTS }}
