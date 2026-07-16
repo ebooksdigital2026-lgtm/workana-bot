@@ -16,10 +16,8 @@ import requests
 from bs4 import BeautifulSoup
 
 # Configuration
-TELEGRAM_BOT_TOKEN = os.environ.get(
-    "TELEGRAM_BOT_TOKEN", "8807055193:AAGaLQ1htm4-O5S0gpAxCSY4eTafvt8qVro"
-)
-TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "8269637460")
+TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN") or "8807055193:AAGaLQ1htm4-O5S0gpAxCSY4eTafvt8qVro"
+TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID") or "8269637460"
 TELEGRAM_API = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}"
 
 WORKANA_BASE = "https://www.workana.com"
