@@ -25,13 +25,13 @@ TELEGRAM_API = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}"
 WORKANA_BASE = "https://www.workana.com"
 WORKANA_JOBS = f"{WORKANA_BASE}/jobs"
 
-CATEGORY = os.environ.get("WORKANA_CATEGORY", "it-programming")
-LANGUAGE = os.environ.get("WORKANA_LANGUAGE", "es")
-PUBLICATION = os.environ.get("WORKANA_PUBLICATION", "1d")
-MAX_PAGES = int(os.environ.get("WORKANA_MAX_PAGES", "10"))
-MAX_RESULTS = int(os.environ.get("WORKANA_MAX_RESULTS", "15"))
-MIN_BIDS = int(os.environ.get("WORKANA_MIN_BIDS", "1"))
-MAX_BIDS = int(os.environ.get("WORKANA_MAX_BIDS", "20"))
+CATEGORY = os.environ.get("WORKANA_CATEGORY") or "it-programming"
+LANGUAGE = os.environ.get("WORKANA_LANGUAGE") or "es"
+PUBLICATION = os.environ.get("WORKANA_PUBLICATION") or "1d"
+MAX_PAGES = int(os.environ.get("WORKANA_MAX_PAGES") or "10")
+MAX_RESULTS = int(os.environ.get("WORKANA_MAX_RESULTS") or "15")
+MIN_BIDS = int(os.environ.get("WORKANA_MIN_BIDS") or "1")
+MAX_BIDS = int(os.environ.get("WORKANA_MAX_BIDS") or "20")
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (X11; Linux aarch64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
